@@ -21,12 +21,17 @@ class PluginImageExif_v1{
       foreach ($exif as $key => $value) {
         $ul = wfDocument::createHtmlElementAsObject('ul');
         foreach ($value as $key2 => $value2) {
+          if(is_array($value2)){
+            $value2 = json_encode($value2);
+          }
           $ul->set('innerHTML/', wfDocument::createHtmlElement('li', $key2.': '.$value2));
         }
         $element[] = wfDocument::createHtmlElement('h1', $key);
         $element[] = $ul->get();
       }
       wfDocument::renderElement($element);
+    }else{
+      echo 'Could not find file '.$data->get('data/filename');
     }
   }
   /**

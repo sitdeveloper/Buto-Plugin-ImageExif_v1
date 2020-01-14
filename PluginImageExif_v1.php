@@ -1,12 +1,4 @@
 <?php
-/**
-<p>
- Image EXIF.
-</p>
-<p>
- Get image data from embedded tags.
-</p>
- */
 class PluginImageExif_v1{
   /**
    * Widget to show exif data of an image.

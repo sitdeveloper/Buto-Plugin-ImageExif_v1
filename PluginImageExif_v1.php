@@ -32,6 +32,7 @@ class PluginImageExif_v1{
    * @return array
    */
   public static function getImageData($filename){
+    $filename = wfSettings::replaceDir($filename);
     $exif = exif_read_data(wfArray::get($GLOBALS, 'sys/app_dir').$filename, 0, true);
     return $exif;
   }
